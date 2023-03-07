@@ -1,5 +1,5 @@
 # Dark mode for Duolingo web
-This is a dark mode for Duolingo's website that tries to replicate the dark mode for the mobile app version of Duolingo as closely as possible using CSS. This is still a work in progress. Please see the 11 `Projects` tab for more info.
+This is a dark mode for Duolingo's website that tries to replicate the dark mode for the mobile app version of Duolingo as closely as possible using CSS. This is still a work in progress. Please see the `Projects` tab for more info.
 
 ## Instructions
 To use the dark mode, please download the file called `dark-duolingo.css` and apply it to Duolingo's website using a browser extension for applying custom CSS.
@@ -13,4 +13,4 @@ To avoid using custom images, the colors of most SVG icons are changed using the
 
 Some element behaviors cannot be replicated using only CSS. In which case they are replicated as closely as possible within the given constraints.
 
-Some elements' `opacity` and/or `brightness` properties are altered to creare a level of contrast that is more consistent with the light mode version.
+Some elements' `opacity` and/or `brightness` properties on hover are altered to creare a level of contrast that is more consistent with the light mode version.
