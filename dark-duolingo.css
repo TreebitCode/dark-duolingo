@@ -1,0 +1,310 @@
+/* Dark theme for Duolingo */
+/* By Ilia#0333 on Discord */
+
+/* Custom variables used */
+:root {
+    /* Colors */
+    --color-background-dark: rgb(19, 31, 34);
+    --color-background-hover: rgb(23, 37, 41);
+    --color-background-light: rgb(32, 47, 54); /* --color-polar-always-dark */
+    --color-text-white: rgb(241, 247, 251); /* --color-eel-always-dark */
+    --color-text-gray: rgb(82, 101, 109);
+    --color-text-gray-tip: rgb(168, 168, 168);
+    --color-text-blue: rgb(73, 192, 248); /* --color-macaw-always-dark */
+    --color-border-blue: rgb(63, 133, 167);
+    --color-shadow-gray: rgb(55, 70, 79); /* --color-swan-always-dark */
+    --color-correct-green: rgb(121, 185, 51);
+    --color-button-green: rgb(147, 211, 51); /* --color-owl-always-dark */
+    --color-wrong-red: rgb(216, 72, 72);
+    --color-button-red: rgb(238, 85, 85);
+    --color-combo-orange: rgb(255, 171, 51);
+    --color-combo-glare-orange: rgb(255, 188, 92);
+    --color-shadow-blue: rgb(24, 153, 214);
+    
+    /* Filters for changing SVG icons */
+    /* Generated using this tool: https://codepen.io/sosuke/pen/Pjoqqp */
+    --filter-background-dark: brightness(0) saturate(1) invert(.08) sepia(.39) saturate(4.84) hue-rotate(144deg) brightness(1.01) contrast(.94);
+    --filter-text-gray: brightness(0) saturate(1) invert(.38) sepia(.08) saturate(10.41) hue-rotate(153deg) brightness(.94) contrast(.87);
+    --filter-background-light: brightness(0) saturate(1) invert(.13) sepia(.43) saturate(4.21) hue-rotate(154deg) brightness(.92) contrast(.89);
+    --filter-correct-green: brightness(0) saturate(1) invert(.72) sepia(.18) saturate(15.17) hue-rotate(45deg) brightness(.88) contrast(.86);
+    --filter-wrong-red: brightness(0) saturate(1) invert(.45) sepia(.66) saturate(6.63) hue-rotate(314deg) brightness(.82) contrast(1.08); /* IMPROVE */
+    --filter-blue: brightness(0) saturate(1) invert(.53) sepia(.84) saturate(15.62) hue-rotate(168deg) brightness(1) contrast(.93);
+}
+
+/* Default background and text colors */
+body {
+    background-color: var(--color-background-dark);
+    color: var(--color-text-white);
+}
+
+/* === GENERAL ELEMENTS === */
+
+/* Buttons */
+/* Basic buttons, word bank words */
+._1O290 {
+    --web-ui_button-color: var(--color-text-white);
+}
+._2NolF:before {
+    background-color: var(--web-ui_button-background-color, var(--color-text-blue));
+    box-shadow: 0 var(--__internal__lip-width) 0 var(--web-ui_button-border-color, var(--color-shadow-blue));
+}
+.WOZnx {
+    --__internal__border-color: var(--color-shadow-gray);
+    /* Second variable allows some buttons to have gray text */
+    color: var(--web-ui_button-color, var(--color-text-gray));
+}
+.WOZnx:before {
+    background-color: var(--color-background-dark);
+}
+@media (hover: hover) {
+    .WOZnx:hover:not(:disabled):not(.LhRk3):not(._1V-dy) {
+        filter: brightness(1.2);
+    }
+}
+
+/* Popovers */
+/* Speech bubbles, tips, menus */
+._1KUxv {
+    background-color: var(--color-background-dark);
+    border-color: var(--color-shadow-gray);
+}
+._3p5e9 { /* Connecting triangle */
+    background-color: var(--color-background-dark);
+    border-color: var(--color-shadow-gray);
+}
+
+/* Progress bars */
+/* Lesson progress, achievements, daily goals */
+._2YmyD {
+    background-color: var(--color-shadow-gray);
+}
+._2_zk1 { /* Lesson progress */
+    --web-ui_progress-bar-color: var(--color-correct-green);
+    --web-ui_progress-bar-glare-color: var(--color-button-green);
+}
+._10NA5 { /* Lesson progress (combo) */
+    --web-ui_progress-bar-color: var(--color-combo-orange);
+    --web-ui_progress-bar-glare-color: var(--color-combo-glare-orange);
+}
+.KAjTN { /* Glare */
+    background: var(--web-ui_progress-bar-glare-color);
+    opacity: 1;
+}
+
+/* === LESSON UI === */
+
+/* Loading screen */
+._3IvEG {
+    background: var(--color-background-dark);
+}
+.a1TnJ {
+    color: var(--color-text-gray);
+}
+.XWge1 {
+    color: rgb(var(--color-wolf-always-dark));
+}
+
+/* X icon */
+._1DC8p { 
+    filter: var(--filter-text-gray);
+}
+@media (hover:hover) {
+    .UCrz7._1DC8p:hover:not(:disabled):not(.k6MEx):not(._3tP0w) {
+        filter: var(--filter-text-gray) brightness(1.2);
+    }
+}
+
+/* Word cards */
+/* Not checked */
+._3C_oC {
+    --__internal__border-color: var(--color-shadow-gray);
+}
+._3C_oC:before {
+    background-color: var(--color-background-dark);
+}
+@media (hover: hover) {
+    ._3C_oC:hover:not(:active):not(.disCS):not(.hfPEz):before {
+        background-color: var(--color-background-hover);
+    }
+}
+/* Checked */
+._3C_oC.disCS,
+._3C_oC:active:not(.hfPEz) {
+    --__internal__border-color: var(--color-border-blue);
+    color: var(--color-text-blue);
+}
+._3C_oC.disCS:before,
+._3C_oC:active:not(.hfPEz):before {
+    background-color: var(--color-background-light);
+}
+/* Hotkey number */
+._2S0Zh {
+    border-color: var(--color-shadow-gray);
+    color: var(--color-text-gray);
+}
+.Z7UoT {
+    border-color: var(--color-border-blue);
+    color: var(--color-text-blue);
+}
+/* Picture */
+._3pn9e { /* Text */
+    color: var(--color-text-white);
+}
+._3pn9e:active:not(._1d8Vo) ._2f9B3 { /* Hotkey border fix */
+    border-color: var(--color-border-blue);
+}
+/* No picture (includes "Complete the chat" answers) */
+._2-OmZ { /* Text */
+    color: var(--color-text-white);
+}
+._2-OmZ:active:not(._1p2g7) ._28sjs { /* Hotkey border fix */
+    border-color: var(--color-border-blue);
+}
+
+/* Speech bubbles */
+._3a8EI.fs-exclude._1ZuR6 { /* Speaker icon */
+    filter: var(--filter-blue);
+}
+._1bkpY { /* New words */
+    color: rgb(var(--color-beetle));
+}
+/* Tips */
+._2_c8s, ._3JVfl {
+    background: var(--color-background-light);
+}
+._12fxT { /* Gray text */
+    color: var(--color-text-gray-tip);
+}
+._2Gskp { /* Separators */
+    border-color: var(--color-shadow-gray);
+}
+
+/* "Complete the chat" task */
+._29e-M {
+    background-color: var(--color-background-light);
+    border-color: var(--color-shadow-gray);
+}
+._2t35G:before { /* Triangle */
+    border-right-color: var(--color-shadow-gray);
+}
+._2t35G:after {  /* Triangle border */
+    border-right-color: var(--color-background-light);
+}
+._21IEC { /* Reply bubble */
+    background-color: var(--color-background-light);
+    border-color: rgb(var(--color-blue-jay));
+}
+.bjjp9._2t35G:before { /* Triangle border */
+    border-right-color: rgb(var(--color-blue-jay));
+}
+._2Iqyl { /* Blank */
+    border-color: var(--color-text-gray);
+}
+/* Next button */
+._1HtZY { /* Arrow icon */
+    filter: var(--filter-background-dark);
+}
+
+/* Word bank */
+/* Dividers */
+._15J0U {
+    border-color: var(--color-shadow-gray);
+}
+._1HxVp {
+    border-color: var(--color-shadow-gray);
+}
+/* Gaps */
+._2HRY_ {
+    --web-ui_button-background-color-disabled: var(--color-shadow-gray);
+    --web-ui_button-border-color-disabled: var(--color-shadow-gray);
+}
+/* Use keyboard/word bank button */
+.yWRY8 {
+    color: var(--color-text-gray);
+}
+._1ootc, ._3gEEV { /* Keyboard/word bank icon */
+ filter: var(--filter-text-gray);
+}
+
+/* Footer before checking answer */
+@media (min-width: 700px) { 
+    ._399cc {
+        background-color: var(--color-background-dark);
+        border-color: var(--color-shadow-gray);
+    }
+}
+/* Check button */
+._2NolF.LhRk3:not(._1rl91),
+._2NolF:disabled:not(._1rl91) {
+    color: var(--color-text-gray);
+}
+._2NolF.LhRk3:not(._1rl91):before,
+._2NolF:disabled:not(._1rl91):before {
+    background-color: var(--color-shadow-gray);
+}
+
+/* Correct answer footer */
+._3e9O1 {
+    background-color: var(--color-background-light);
+}
+._176_d { /* Green checkmark icon */
+    filter: var(--filter-background-dark);
+}
+@media (min-width: 700px) {
+    ._3e9O1 ._2VrUB { /* Circle around icon */
+        background-color: var(--color-correct-green);
+    }
+}
+._1D8II { /* Correct */
+    color: var(--color-correct-green);
+}
+.jTP0E { /* Report/discuss */
+    color: var(--color-correct-green);
+}
+._3tFbb { /* Flag icon */
+    filter: var(--filter-correct-green);
+}
+._2oQNn { /* Comment icon */
+    filter: var(--filter-correct-green);
+}
+._3HsTU {
+    opacity: 0.85;
+}
+/* Continue button */
+._9C_ii {
+    --web-ui_button-background-color: var(--color-button-green);
+    --web-ui_button-border-color: var(--color-correct-green);
+}
+._2NolF {
+    color: var(--color-background-dark);
+}
+
+/* Wrong answer footer */
+._3vF5k {
+    background-color: var(--color-background-light);
+}
+._3Hb2o { /* Red X icon */
+    filter: var(--filter-background-light);
+}
+@media (min-width: 700px) {
+    ._3vF5k ._2VrUB { /* Circle around icon */
+        background: var(--color-wrong-red);
+    }
+}
+._3Qruy { /* Correct solution */
+    color: var(--color-wrong-red);
+}
+.RnDo_ { /* Report/discuss */
+    color: var(--color-wrong-red);
+}
+._1SnxH { /* Flag icon ._3o1ZL*/
+    filter: var(--filter-wrong-red);
+}
+._3o1ZL { /* Flag icon */
+    filter: var(--filter-wrong-red);
+}
+/* Continue button */
+.NAidc {
+    --web-ui_button-background-color: var(--color-button-red);
+    --web-ui_button-border-color: var(--color-wrong-red);
+}
