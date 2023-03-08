@@ -8,18 +8,22 @@
     --color-background-hover: rgb(23, 37, 41);
     --color-background-light: rgb(32, 47, 54); /* --color-polar-always-dark */
     --color-text-white: rgb(241, 247, 251); /* --color-eel-always-dark */
+    --color-text-white-info: rgb(220, 230, 236);
     --color-text-gray: rgb(82, 101, 109);
     --color-text-gray-tip: rgb(168, 168, 168);
     --color-text-blue: rgb(73, 192, 248); /* --color-macaw-always-dark */
     --color-border-blue: rgb(63, 133, 167);
+    --color-shadow-blue: rgb(24, 153, 214);
     --color-shadow-gray: rgb(55, 70, 79); /* --color-swan-always-dark */
     --color-correct-green: rgb(121, 185, 51);
     --color-button-green: rgb(147, 211, 51); /* --color-owl-always-dark */
     --color-wrong-red: rgb(216, 72, 72);
     --color-button-red: rgb(238, 85, 85);
-    --color-combo-orange: rgb(255, 171, 51);
-    --color-combo-glare-orange: rgb(255, 188, 92);
-    --color-shadow-blue: rgb(24, 153, 214);
+    --color-unanswered-yellow: rgb(231, 166, 1);
+    --color-button-yellow: rgb(255, 200, 0);
+    --color-combo-5-glare-yellow: rgb(255, 211, 51);
+    --color-combo-10-orange: rgb(255, 171, 51);
+    --color-combo-10-glare-orange: rgb(255, 188, 92);
     
     /* Filters for changing SVG icons */
     /* Generated using this tool: https://codepen.io/sosuke/pen/Pjoqqp */
@@ -27,6 +31,7 @@
     --filter-text-gray: brightness(0) saturate(1) invert(.38) sepia(.08) saturate(10.41) hue-rotate(153deg) brightness(.94) contrast(.87);
     --filter-background-light: brightness(0) saturate(1) invert(.13) sepia(.43) saturate(4.21) hue-rotate(154deg) brightness(.92) contrast(.89);
     --filter-correct-green: brightness(0) saturate(1) invert(.72) sepia(.18) saturate(15.17) hue-rotate(45deg) brightness(.88) contrast(.86);
+    --filter-unanswered-yellow: brightness(0) saturate(1) invert(.63) sepia(.34) saturate(17.48) hue-rotate(7deg) brightness(.99) contrast(.99);
     --filter-wrong-red: brightness(0) saturate(1) invert(.45) sepia(.66) saturate(6.63) hue-rotate(314deg) brightness(.82) contrast(1.08); /* IMPROVE */
     --filter-blue: brightness(0) saturate(1) invert(.53) sepia(.84) saturate(15.62) hue-rotate(168deg) brightness(1) contrast(.93);
 }
@@ -38,6 +43,10 @@ body {
 }
 
 /* === GENERAL ELEMENTS === */
+
+h2 {
+    color: var(--color-text-white);
+}
 
 /* Buttons */
 /* Basic buttons, word bank words */
@@ -82,9 +91,13 @@ body {
     --web-ui_progress-bar-color: var(--color-correct-green);
     --web-ui_progress-bar-glare-color: var(--color-button-green);
 }
-._10NA5 { /* Lesson progress (combo) */
-    --web-ui_progress-bar-color: var(--color-combo-orange);
-    --web-ui_progress-bar-glare-color: var(--color-combo-glare-orange);
+._10NA5 { /* Lesson progress after 5 correct answers in a row */
+    --web-ui_progress-bar-color: var(--color-button-yellow);
+    --web-ui_progress-bar-glare-color: var(--color-combo-5-glare-yellow);
+}
+._1dOak { /* Lesson progress after 10 correct answers in a row */
+    --web-ui_progress-bar-color: var(--color-combo-10-orange);
+    --web-ui_progress-bar-glare-color: var(--color-combo-10-glare-orange);
 }
 .KAjTN { /* Glare */
     background: var(--web-ui_progress-bar-glare-color);
@@ -168,6 +181,13 @@ body {
 ._1bkpY { /* New words */
     color: rgb(var(--color-beetle));
 }
+/* Underline */
+._3Lg1h {
+    background: url(https://raw.githubusercontent.com/TreebitCode/dark-duolingo/41887107932a516c7a9165a9a338b8eaaea6f960/images/underline.svg) 0 100% repeat-x;
+}
+._1bkpY {
+    background: url(https://raw.githubusercontent.com/TreebitCode/dark-duolingo/4e3b1f0ca690abdea992aa3caa9490438afec04f/images/underline-new.svg) 0 100% repeat-x;
+}
 /* Tips */
 ._2_c8s, ._3JVfl {
     background: var(--color-background-light);
@@ -201,6 +221,9 @@ body {
     border-color: var(--color-text-gray);
 }
 /* Next button */
+._2orIw {
+    --web-ui_button-color: var(--color-background-dark);
+}
 ._1HtZY { /* Arrow icon */
     filter: var(--filter-background-dark);
 }
@@ -224,6 +247,17 @@ body {
 }
 ._1ootc, ._3gEEV { /* Keyboard/word bank icon */
  filter: var(--filter-text-gray);
+}
+
+/* Listening */
+._17DXh ._3a8EI.fs-exclude._1ZuR6 { /* Icons */
+    filter: var(--filter-background-dark);
+}
+._17DXh:after {
+    background-color: var(--color-text-blue);
+}
+._2KQGO:before { /* Virtually useless border */
+    border-color: var(--color-background-dark);
 }
 
 /* Footer before checking answer */
@@ -274,9 +308,39 @@ body {
 ._9C_ii {
     --web-ui_button-background-color: var(--color-button-green);
     --web-ui_button-border-color: var(--color-correct-green);
+    --web-ui_button-color: var(--color-background-dark);
 }
-._2NolF {
-    color: var(--color-background-dark);
+
+/* Unanswered footer */
+/* Shown if "Can't listen now" is pressed in listening task*/
+._2NxDA {
+    background-color: var(--color-background-light);
+}
+._1W9Eh { /* Yellow checkmark icon */
+    filter: var(--filter-background-dark);
+}
+@media (min-width: 700px) {
+    ._2NxDA ._2VrUB { /* Circle around icon */
+        background-color: var(--color-unanswered-yellow);
+    }
+}
+._2QmYK { /* No listening exercises */
+    color: var(--color-unanswered-yellow);
+}
+._26ysv { /* Report/discuss */
+    color: var(--color-unanswered-yellow);
+}
+._1opQ9 { /* Flag icon */
+    filter: var(--filter-unanswered-yellow);
+}
+.WBzys { /* Comment icon */
+    filter: var(--filter-unanswered-yellow);
+}
+/* Continue button */
+._1u49Q {
+    --web-ui_button-background-color: var(--color-button-yellow);
+    --web-ui_button-border-color: var(--color-unanswered-yellow);
+    --web-ui_button-color: var(--color-background-dark);
 }
 
 /* Wrong answer footer */
@@ -284,7 +348,7 @@ body {
     background-color: var(--color-background-light);
 }
 ._3Hb2o { /* Red X icon */
-    filter: var(--filter-background-light);
+    filter: var(--filter-background-dark);
 }
 @media (min-width: 700px) {
     ._3vF5k ._2VrUB { /* Circle around icon */
@@ -297,14 +361,65 @@ body {
 .RnDo_ { /* Report/discuss */
     color: var(--color-wrong-red);
 }
-._1SnxH { /* Flag icon ._3o1ZL*/
+._1SnxH { /* Flag icon*/
     filter: var(--filter-wrong-red);
 }
-._3o1ZL { /* Flag icon */
+._3o1ZL { /* Comment icon */
     filter: var(--filter-wrong-red);
 }
 /* Continue button */
 .NAidc {
     --web-ui_button-background-color: var(--color-button-red);
     --web-ui_button-border-color: var(--color-wrong-red);
+    --web-ui_button-color: var(--color-background-dark);
+}
+
+/* Perfect lesson */
+._3plTW { /* Blur */
+    background: linear-gradient(to right, var(--color-background-dark)), var(--color-background-dark) 10%, var(--color-background-dark) 90%, var(--color-background-dark);
+}
+
+/* After lesson */
+.ccZTP { /* XP info */
+    color: var(--color-text-white-info);
+}
+
+/* Leader board */
+.CeAwM {
+    border-color: var(--color-shadow-gray);
+}
+/* Hiding scrollbar in Edge, EE and Firefox*/
+._1vzP4 {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+/* Hiding scrollbar in Chrome, Safari and Opera */
+._1vzP4::-webkit-scrollbar {
+    display: none;
+}
+._1c_8A { /* User */
+    background-color: var(--color-background-light);
+}
+._2WS1S { /* Status bubbles*/
+    background-color: var(--color-text-white);
+    border-color: var(--color-shadow-gray);
+}
+._258ba { /* Duo status bubbles */
+    background-color: rgb(var(--color-owl));    
+}
+._2qALW,
+._28hL4 { /* Numbers */
+    color: var(--color-text-white);
+}
+._1EmRU { /* Promotion zone */
+    color: var(--color-correct-green);
+}
+._3hS8X { /* Promotion zone numbers */
+    color: var(--color-correct-green);
+}
+._2HMKA { /* Demotion zone */
+    color: var(--color-wrong-red);
+}
+._17eWd { /* Demotion zone numbers */
+    color: var(--color-wrong-red);
 }
